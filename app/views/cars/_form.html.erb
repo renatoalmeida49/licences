@@ -1,0 +1,40 @@
+<%= form_with model: @car, local: true do |form| %>
+ 
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@car.errors.count, "error") %> impossibilitam o cadastro de novo carro:
+      </h2>
+      <ul>
+        <% @car.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="form-row">
+    <%= form.label :placa %><br>
+    <%= form.text_field :placa, class: 'form-control'  %>
+  </div>
+ 
+  <div class="form-row">
+    <%= form.label :proprietario %><br>
+    <%= form.text_area :proprietario, class: 'form-control'  %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :modelo %><br>
+    <%= form.text_area :modelo, class: 'form-control'  %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :ano %><br>
+    <%= form.text_area :ano, class: 'form-control'  %>
+  </div>
+ 
+  <div class="form-row">
+    <%= form.submit %>
+  </div>
+ 
+<% end %>

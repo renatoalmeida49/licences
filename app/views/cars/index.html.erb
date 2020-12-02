@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="h1">Carros cadastrados</div>
+
+  <%= link_to 'New car', new_car_path, class: 'btn btn-success' %>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Placa</th>
+        <th scope="col">Proprietário</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Ano</th>
+        <th scope="col" colspan="2"></th>
+    </tr>
+    </thead>
+  
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.placa %></td>
+        <td><%= car.proprietario %></td>
+        <td><%= car.modelo %></td>
+        <td><%= car.ano %></td>
+        <td><%= link_to 'Edit', edit_car_path(car), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', car_path(car), class: 'btn btn-danger',
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
